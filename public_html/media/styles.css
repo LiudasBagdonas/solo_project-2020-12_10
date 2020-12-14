@@ -31,6 +31,7 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
 .wrapper {
     width: 800px;
 }
@@ -47,14 +48,17 @@ header {
     justify-content: center;
     align-items: center;
 }
+
 nav {
     display: flex;
     justify-content: flex-end;
 }
+
 nav ul {
     display: flex;
     list-style: none;
 }
+
 nav a {
     text-decoration: none;
     color: white;
@@ -62,6 +66,7 @@ nav a {
     font-weight: bold;
     font-size: 20px;
 }
+
 nav a:hover {
     color: orange;
 }
@@ -123,43 +128,97 @@ textarea.input-field {
 /* #Poo wall*/
 /*==================*/
 
-.poo_wall_box {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    background-image: url("https://res.cloudinary.com/rebelwalls/image/upload/b_black,c_fill,f_auto,fl_progressive,h_533,q_auto,w_800/v1479371023/article/R10961_image1");
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.7);
+.pizzas_box {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.hanky_box {
+.pizza_box {
+    width: 20%;
+    background-image: linear-gradient(white, floralwhite);
+    box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 20px 0;
+    min-height: 200px;
     position: relative;
-    height: 150px;
-    width: 70px;
-    z-index: -1;
-    background-image: url("https://southparkstudios.mtvnimages.com/shared/characters/celebrities/mr-hankey.png?height=165");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: rotate(-45deg);
-    top: -50px;
-    left: -50px;
+    margin: 20px;
+    margin-bottom: 100px;
 }
 
-.poo_box {
+.pizza_img {
+    height: 130px;
+    image-rendering: auto;
+}
+
+.pizza_name {
+    color: darkgrey;
+}
+
+.pizza_price {
+    color: black;
+    font-weight: bold;
+}
+
+.order_button {
+    margin: 0;
+    width: 80px;
+}
+.order_button, .delete_button {
+    max-width: 80px;
+    margin: 0;
     position: absolute;
-    height: 10px;
-    width: 10px;
+    bottom: -80px;
+    left: -120px;
 }
 
-.bg_black {
-    background-color: black;
+.edit_button {
+    max-width: 80px;
+    margin: 0;
+    position: absolute;
+    bottom: -120px;
+    left: -120px;
+
 }
-.bg_red {
-    background-color: red;
+.add_button {
+    position: absolute;
+    bottom: 50px;
+    background-color: tomato;
+    color: white;
+    min-width: 150px;
+    border: 1px solid rgba(31, 31, 31, 0.25);
+    border-radius: 10px;
+    padding: 7px;
+    margin: 5px;
 }
-.bg_green {
-    background-color: green;
+
+/*===============*/
+/* #Table*/
+/*==================*/
+
+table {
+    margin-top: 50px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
 }
-.bg_blue {
-    background-color: blue;
+table form {
+    margin: 0;
+}
+.select_field {
+    min-width: 100px;
+    border: 1px solid rgba(31, 31, 31, 0.25);
+    border-radius: 10px;
+    padding: 7px;
+    margin: 5px;
+}
+
+.select_btn {
+    background-color: tomato;
+    color: white;
+    min-width: 100px;
+    border: 1px solid rgba(31, 31, 31, 0.25);
+    border-radius: 10px;
+    padding: 7px;
+    margin: 5px;
 }

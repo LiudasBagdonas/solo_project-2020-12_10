@@ -1,6 +1,8 @@
 <?php
 
+
 namespace App\Controllers\Admin;
+
 
 use App\App;
 use App\Controllers\Base\AuthController;
@@ -17,22 +19,27 @@ class AddController extends AuthController
         parent:: __construct();
         $this->form = new AddForm();
         $this->page = new BasePage([
-            'title' => 'Register',
+            'title' => 'Edit poo',
         ]);
     }
 
     public function add()
     {
 
-        if ($this->form->validate()) {
-            $clean_inputs = $this->form->values();
-            App::$db->insertRow('items', $clean_inputs + ['id' => $_SESSION['email']]);
+        if ($_POST['redirect_add'] !== 'redirect_add') {
+            if ($this->form->validate()) {
+                $clean_inputs = $this->form->values();
+                App::$db->insertRow('pizzas', [
+                    'photo' => $clean_inputs['photo'],
+                    'name' => $clean_inputs['name'],
+                    'price' => $clean_inputs['price']
+                ]);
 
-            header('Location: /');
+                header('Location: /');
+            }
         }
-
         $this->page->setContent($this->form->render());
+        print $this->page->render();
 
-        return $this->page->render();
     }
 }

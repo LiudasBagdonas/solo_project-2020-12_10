@@ -87,8 +87,8 @@ function option_attr(string $option_id, array $field): string
     $attributes = [
         'value' => $option_id,
     ];
-    if ($field['value'] ?? null === $option_id) {
-        $attributes['selected'] = 'selected';
+    if (($field['value'] ?? false) === $option_id) {
+        $attributes['selected'] = 'true';
     }
 
     return html_attr($attributes);

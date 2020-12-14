@@ -17,59 +17,29 @@ class Navigation extends View
     {
 
         if (App::$session->getUser()) {
-            return [
-                App::$router::getUrl('index') => 'Home',
-                App::$router::getUrl('add') => 'Add',
-                App::$router::getUrl('list') => 'Edit',
-                App::$router::getUrl('logout') => 'Logout',
-            ];
-        } else {
+            if (App::$session->getUser()['role'] == 'admin') {
+                return [
+                    App::$router::getUrl('index') => 'Home',
+                    App::$router::getUrl('admin_order') => 'Orders',
+                    App::$router::getUrl('users_list') => 'Users',
+                    App::$router::getUrl('logout') => 'Logout',
+                ];
+            } else {
+                return [
+                    App::$router::getUrl('index') => 'Home',
+                    App::$router::getUrl('my_orders') => 'My Orders',
+                    App::$router::getUrl('logout') => 'Logout',
+                ];
+            }
+        }
+        if (!App::$session->getUser()) {
             return [
                 App::$router::getUrl('index') => 'Home',
                 App::$router::getUrl('register') => 'Register',
                 App::$router::getUrl('login') => 'Login',
             ];
         }
-//        if (App::$session->getUser()){
-//            return [
-//                'links' => [
-//                    'home' => [
-//                        'value' => 'Home',
-//                        'path' => '/index.php'
-//                    ],
-//                    'add' => [
-//                        'value' => 'Add Item',
-//                        'path' => '/admin/add.php'
-//                    ],
-//                    'mypoo' => [
-//                        'value' => 'My Poo',
-//                        'path' => '/admin/list.php'
-//                    ],
-//                    'logout' => [
-//                        'value' => 'Log Out',
-//                        'path' => '/logout.php'
-//                    ],
-//
-//                ],
-//            ];
-//        } else {
-//            return [
-//                'links' => [
-//                    'home' => [
-//                        'value' => 'Home',
-//                        'path' => '/index.php'
-//                    ],
-//                    'register' => [
-//                        'value' => 'Register',
-//                        'path' => '/register.php'
-//                    ],
-//                    'login' => [
-//                        'value' => 'Log In',
-//                        'path' => '/login.php'
-//                    ]
-//                ],
-//            ];
-//        }
+
     }
 
     public function render($template_path = ROOT . '/app/templates/nav.tpl.php')

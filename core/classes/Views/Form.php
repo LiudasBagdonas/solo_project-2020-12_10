@@ -90,6 +90,7 @@ class Form extends View
             foreach ($values as $value_index => $value) {
                 if ($field_id == $value_index) {
                     $field['value'] = $value;
+//                    $field['options'][$value] = 'selected';
                 }
             }
         }

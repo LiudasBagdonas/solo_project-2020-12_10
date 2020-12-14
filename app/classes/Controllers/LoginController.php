@@ -27,11 +27,14 @@ class LoginController extends GuestController
     public function login()
     {
 
-        if ($this->form->validate()) {
-            $clean_inputs = $this->form->values();
-            App::$session->login($clean_inputs['email'], $clean_inputs['password']);
+        if (!isset($_POST['redirect'])) {
+            if ($this->form->validate()) {
+                $clean_inputs = $this->form->values();
 
-            header('Location: /');
+                App::$session->login($clean_inputs['email'], $clean_inputs['password']);
+
+                header('Location: /');
+            }
         }
 
         $this->page->setContent($this->form->render());

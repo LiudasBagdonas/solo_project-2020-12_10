@@ -11,9 +11,10 @@ class InstallController
     public function install()
     {
         App::$db = new FileDB(DB_FILE);
-        App::$db->createTable('credentials');
-        App::$db->insertRow('credentials', ['email' => 'liudasbagd@gmail.com', 'password' => 'qq']);
-        App::$db->createTable('items');
-        App::$db->createTable('history');
+        App::$db->createTable('users');
+        App::$db->insertRow('users', ['email' => 'liudasbagd@gmail.com', 'password' => 'qq', 'role' => 'admin']);
+        App::$db->createTable('pizzas');
+        App::$db->createTable('orders');
+        var_dump('Installed');
     }
 }

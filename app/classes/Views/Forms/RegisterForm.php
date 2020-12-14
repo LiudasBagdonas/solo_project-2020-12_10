@@ -24,7 +24,21 @@ class RegisterForm extends Form
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'email@mail',
+                            'placeholder' => 'email@mail.com',
+                            'class' => 'input-field'
+                        ]
+                    ]
+                ],
+                'username' => [
+                    'label' => 'Full Name',
+                    'type' => 'text',
+                    'value' => '',
+                    'validators' => [
+                        'validate_field_not_empty',
+                    ],
+                    'extra' => [
+                        'attr' => [
+                            'placeholder' => 'Full Name',
                             'class' => 'input-field'
                         ]
                     ]
@@ -38,7 +52,7 @@ class RegisterForm extends Form
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'password',
+                            'placeholder' => 'Password',
                             'class' => 'input-field'
                         ]
                     ]
@@ -52,7 +66,7 @@ class RegisterForm extends Form
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'password',
+                            'placeholder' => 'Repeat password',
                             'class' => 'input-field'
                         ]
                     ]

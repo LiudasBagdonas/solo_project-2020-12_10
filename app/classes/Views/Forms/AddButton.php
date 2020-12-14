@@ -1,23 +1,23 @@
 <?php
 
 
-namespace App\Views\Forms\Admin;
-
+namespace App\Views\Forms;
 
 use Core\Views\Form;
 
-class DeleteForm extends Form
+class AddButton extends Form
 {
-    public function __construct($id)
+    public function __construct()
     {
         parent::__construct([
             'attr' => [
                 'method' => 'POST',
+                'action' => '/add'
             ],
             'fields' => [
-                'row_id' => [
+                'redirect_add' => [
                     'type' => 'hidden',
-                    'value' => $id,
+                    'value' => 'redirect_add',
                     'extra' => [
                         'attr' => [
                             'class' => 'input-field',
@@ -26,12 +26,13 @@ class DeleteForm extends Form
                 ],
             ],
             'buttons' => [
-                'delete' => [
-                    'title' => 'Delete',
-                    'type' => 'submit',
+                'redir_button' => [
+                    'title' => 'Add ',
+                    'type' => 'post',
+                    'value' => '',
                     'extra' => [
                         'attr' => [
-                            'class' => 'btn',
+                            'class' => 'add_button',
                         ]
                     ]
                 ]

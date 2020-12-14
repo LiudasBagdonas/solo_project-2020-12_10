@@ -151,9 +151,9 @@ function validate_number(string $field_value, array &$field): bool
  */
 function validate_id_match($field_value, array &$field): bool
 {
-$poo = App::$db->getRowById('items', $field_value);
+$poo = App::$db->getRowById('pizzas', $field_value);
 
-    if (App::$db->rowExists('items', $field_value)) {
+    if (App::$db->rowExists('pizzas', $field_value)) {
         if ($poo['id'] === $_SESSION['email']) {
             return true;
         }
@@ -165,3 +165,14 @@ $poo = App::$db->getRowById('items', $field_value);
 
     return false;
 }
+//
+//function redirect($field_value, array &$field)
+//{
+//    return true;
+//}
+//
+//function order($field_value, array &$field)
+//{
+//    var_dump($field_value);
+//    return true;
+//}

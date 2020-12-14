@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Views\Forms\Admin;
 
 use Core\Views\Form;
@@ -13,49 +14,48 @@ class AddForm extends Form
                 'method' => 'POST',
             ],
             'fields' => [
-                'xaxes' => [
-                    'label' => 'X coordinates',
-                    'type' => 'number',
+                'name' => [
+                    'label' => 'Name',
+                    'type' => 'text',
+                    'value' => '',
                     'validators' => [
-                        'validate_field_not_empty',
-                        'validate_number'
+                        'validate_field_not_empty'
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'X coordinates...',
+                            'placeholder' => 'Name',
                             'class' => 'input-field',
                         ]
                     ]
                 ],
-                'yaxes' => [
-                    'label' => 'Y coordinates',
-                    'type' => 'number',
+                'price' => [
+                    'label' => 'Price',
+                    'type' => 'text',
+                    'value' => '',
                     'validators' => [
-                        'validate_field_not_empty',
-                        'validate_number'
+                        'validate_field_not_empty'
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'Y coordinates...',
+                            'placeholder' => 'Price',
                             'class' => 'input-field',
                         ]
                     ]
                 ],
-                'color' => [
-                    'label' => 'Select color',
-                    'type' => 'select',
-                    'value' => 'option',
-                    'options' => ['black' => 'Black', 'red' => 'Red', 'blue' => 'Blue', 'green' => 'Green'],
+                'photo' => [
+                    'label' => 'Image url',
+                    'type' => 'text',
+                    'value' => '',
                     'validators' => [
-                        'validate_select'
+                        'validate_field_not_empty'
                     ],
                     'extra' => [
                         'attr' => [
-                            'placeholder' => 'colors',
+                            'placeholder' => 'Image url',
                             'class' => 'input-field',
                         ]
                     ]
-                ],
+                ]
             ],
             'buttons' => [
                 'send' => [
@@ -67,9 +67,6 @@ class AddForm extends Form
                         ]
                     ]
                 ]
-            ],
-            'validators' => [
-                'validate_coordinates_overlap'
             ]]);
     }
 }

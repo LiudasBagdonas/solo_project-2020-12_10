@@ -30,7 +30,7 @@ class RegisterController extends GuestController
             $clean_inputs = $this->form->values();
             unset($clean_inputs['password_repeat']);
 
-            App::$db->insertRow('credentials', $clean_inputs);
+            App::$db->insertRow('users', $clean_inputs + ['role' => 'user']);
 
             header('Location: /login');
         }

@@ -1,41 +1,40 @@
 <?php
 
-
 namespace App\Views\Forms\Admin;
-
 
 use Core\Views\Form;
 
-class DeleteForm extends Form
+class OrderForm extends Form
 {
-    public function __construct($id)
+    public function __construct($pizza_index = null)
     {
         parent::__construct([
             'attr' => [
-                'method' => 'POST',
+                'method' => 'GET',
+                'action' => '/'
             ],
             'fields' => [
-                'row_id' => [
+                'order_id' => [
                     'type' => 'hidden',
-                    'value' => $id,
+                    'value' => $pizza_index,
                     'extra' => [
                         'attr' => [
                             'class' => 'input-field',
                         ]
                     ]
-                ],
+                ]
             ],
             'buttons' => [
-                'delete' => [
-                    'title' => 'Delete',
+                'order' => [
+                    'title' => 'Order',
                     'type' => 'submit',
+                    'value' => '',
                     'extra' => [
                         'attr' => [
                             'class' => 'btn',
                         ]
                     ]
                 ]
-            ]
-        ]);
+            ]]);
     }
 }

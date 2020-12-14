@@ -40,14 +40,16 @@ class Session
      */
     public function login(string $email, string $password): bool
     {
-        $user = App::$db->getRowWhere('credentials', [
+        $user = App::$db->getRowWhere('users', [
             'email' => $email,
-            'password' => $password,
+            'password' => $password
         ]);
-
+$_SESSION = [];
         if ($user) {
             $_SESSION['email'] = $email;
             $_SESSION['password'] = $password;
+            $_SESSION['role'] = $user['role'];
+
             $this->user = $user;
 
             return true;

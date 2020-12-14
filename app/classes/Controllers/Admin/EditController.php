@@ -23,21 +23,19 @@ class EditController extends AuthController
 
     public function edit()
     {
+var_dump($_GET);
 
-        $row_id = $_GET['id'] ?? null;
+        $this->form->fill(App::$db->getRowById('pizzas', $_GET['redirect_edit']));
 
-        if ($row_id === null) {
-            header("Location: /admin/edit");
-            exit();
-        }
+        if (isset($_GET['redirect_edit'])) {
+            if ($this->form->validate()) {
 
-        $this->form->fill(App::$db->getRowById('items', $row_id));
+                $clean_inputs = $this->form->values();
 
-        if ($this->form->validate()) {
-            $clean_inputs = $this->form->values();
-            App::$db->updateRow('items', $clean_inputs + ['id' => $_SESSION['email']], $_GET['id']);
+                App::$db->updateRow('pizzas', $clean_inputs, $_GET['redirect_edit']);
 
-            header('Location: /');
+                header('Location: /');
+            }
         }
 
         $this->page->setContent($this->form->render());
